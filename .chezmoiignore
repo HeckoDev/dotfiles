@@ -1,0 +1,16 @@
+# Ignore work-related files with sensitive information
+.oh-my-zsh/custom/work.zsh
+
+# Ignore SSH keys and sensitive files
+.ssh/
+.gnupg/
+.aws/
+
+# Ignore local machine-specific files
+.local/share/
+.cache/
+
+# Ignore browser profiles with passwords/cookies
+.mozilla/
+.config/google-chrome/
+.config/chromium/

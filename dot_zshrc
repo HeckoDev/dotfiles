@@ -1,0 +1,216 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+# Path to your Oh My Zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+export PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/"Program Files"/SafeNet/Authentication/SAC/x64:/mnt/c/"Program Files"/SafeNet/Authentication/SAC/x32:/mnt/c/Users/alexandre.gossard/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/alexandre.gossard/AppData/Local/Programs/"Microsoft VS Code"/bin:/home/alex/go/bin:/usr/local/go/bin:/home/alex/bin:/home/alex/.local/bin:/mnt/c/"Program Files"/"Rancher Desktop"/resources/resources/linux/bin/:/mnt/c/"Program Files"/"Rancher Desktop"/resources/resources/linux/docker-cli-plugins/:/mnt/c/"Program Files"/"Rancher Desktop"/resources/resources/win32/bin/:/mnt/c/"Program Files"/"Rancher Desktop"/resources/resources/win32/docker-cli-plugins/
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+#echo 'source "$HOME/.sdkman/bin/sdkman-init.sh"'
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time Oh My Zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+
+plugins=(	
+    git
+    z
+    autojump
+    docker
+    npm
+    history
+    copyfile
+    asdf
+    zsh-autosuggestions
+    zsh-completions 
+    zsh-history-substring-search 
+    zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch $(uname -m)"
+
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH=/usr/local/bin:$PATH
+export EDITOR=vim
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Function
+function git_branch {
+  local branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  if [[ -n "$branch" ]]; then
+    echo "%F{#999999}-->%f (%F{#ff9900}$branch%f)"
+  fi
+}
+
+function git_status_info() {
+  local ahead behind dirty gitstat branch info
+
+  git rev-parse --is-inside-work-tree &> /dev/null || return
+  gitstat=$(git status --porcelain=2 --branch 2>/dev/null)
+
+  if [[ "$gitstat" =~ "ahead ([0-9]+)" ]]; then
+    ahead=${match[1]}
+  fi
+  if [[ "$gitstat" =~ "behind ([0-9]+)" ]]; then
+    behind=${match[1]}
+  fi
+  if [[ "$gitstat" =~ "^1 " || "$gitstat" =~ "^2 " || "$gitstat" =~ "^\? " ]]; then
+    dirty="✎"
+  fi
+
+  info=""
+  [[ -n "$ahead" ]] && info+="↑$ahead"
+  [[ -n "$behind" ]] && info+="↓$behind"
+  [[ -n "$dirty" ]] && info+="$dirty"
+  [[ -z "$info" ]] && info="✅"
+
+  echo "%F{#999999}git status:%f %F{#ff9900}$info%f"
+}
+
+# atuin - Magical shell history
+# https://github.com/ellie/atuin
+if command -v atuin &>/dev/null; then
+    # Prevent the up arrow rebind
+    export ATUIN_NOBIND="true"
+    eval "$(atuin init zsh)"
+    bindkey '^r' _atuin_search_widget
+
+    # depends on terminal mode - up arrow
+    #bindkey '^[[A' _atuin_search_widget
+    #bindkey '^[OA' _atuin_search_widget
+fi
+
+# Terminal autocomplete fix
+autoload -Uz compinit && compinit
+
+
+# Default prompt
+#PS1="%F{#6ddcef}%1~%f %B\$(git_branch)%b:"
+#RPROMPT="%F{241}%B\$(git_status_info)%b / %*%f"
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+
+# https://serverfault.com/questions/3743/what-useful-things-can-one-add-to-ones-bashrc
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xvjf $1    ;;
+            *.tar.gz)    tar xvzf $1    ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar x $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xvf $1     ;;
+            *.tbz2)      tar xvjf $1    ;;
+            *.tgz)       tar xvzf $1    ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+    else
+        echo "'$1' is not a valid file!"
+    fi
+}
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
