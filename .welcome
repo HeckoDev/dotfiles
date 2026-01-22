@@ -1,0 +1,29 @@
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║  🎉  Installation terminée avec succès !                    ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+📝 PROCHAINES ÉTAPES :
+
+1️⃣  Redémarrer le terminal
+   $ exec zsh
+
+2️⃣  Configurer Powerlevel10k (si première installation)
+   $ p10k configure
+
+3️⃣  Vérifier que tout fonctionne
+   $ command -v eza bat delta fzf go node
+
+4️⃣  [OPTIONNEL] Sur machine de travail - Créer work.zsh
+   $ touch ~/.oh-my-zsh/custom/work.zsh
+   Puis ajoutez-y vos variables d'environnement sensibles
+
+5️⃣  [OPTIONNEL] Configurer Atuin pour la synchronisation de l'historique
+   $ atuin register
+   $ atuin login
+   $ atuin sync
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Pour plus d'informations, consultez le README.md dans votre dépôt dotfiles.

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Ce script configure Git avec vos informations personnelles
+# Il utilise les variables définies dans .chezmoi.yaml.tmpl
+
+{{- if .email }}
+git config --global user.email "{{ .email }}"
+echo "✓ Git email configuré: {{ .email }}"
+{{- end }}
+
+{{- if .name }}
+git config --global user.name "{{ .name }}"
+echo "✓ Git nom configuré: {{ .name }}"
+{{- end }}
+
+# Configuration Git recommandée
+git config --global init.defaultBranch main
+git config --global pull.rebase false
+git config --global core.editor vim
+git config --global color.ui auto
+
+# Configuration pour delta (si installé)
+if command -v delta &> /dev/null; then
+    git config --global core.pager delta
+    git config --global interactive.diffFilter "delta --color-only"
+    git config --global delta.navigate true
+    git config --global delta.light false
+    git config --global merge.conflictstyle diff3
+    git config --global diff.colorMoved default
+    echo "✓ Git configuré pour utiliser delta"
+fi
+
+echo "✓ Configuration Git terminée"

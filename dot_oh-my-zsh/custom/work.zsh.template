@@ -1,0 +1,52 @@
+# work.zsh - TEMPLATE
+# 
+# Ce fichier contient des variables d'environnement sensibles liées au travail.
+# Il n'est JAMAIS versionné dans Git (voir .chezmoiignore)
+#
+# Pour l'utiliser :
+# 1. Copiez ce fichier : cp work.zsh.template work.zsh
+# 2. Éditez work.zsh avec vos vraies valeurs
+# 3. work.zsh restera local à votre machine
+
+# ==================== EXEMPLES ====================
+# Décommentez et modifiez selon vos besoins
+
+# API Keys
+# export MY_API_KEY="your-api-key-here"
+# export AWS_ACCESS_KEY_ID="your-aws-access-key"
+# export AWS_SECRET_ACCESS_KEY="your-aws-secret-key"
+
+# Database
+# export DB_HOST="localhost"
+# export DB_PORT="5432"
+# export DB_USER="myuser"
+# export DB_PASSWORD="mypassword"
+# export DB_NAME="mydatabase"
+
+# Tokens
+# export GITHUB_TOKEN="your-github-token"
+# export GITLAB_TOKEN="your-gitlab-token"
+
+# Proxy (entreprise)
+# export HTTP_PROXY="http://proxy.company.com:8080"
+# export HTTPS_PROXY="http://proxy.company.com:8080"
+# export NO_PROXY="localhost,127.0.0.1,.company.com"
+
+# Chemins spécifiques au travail
+# export WORK_PROJECTS="$HOME/work/projects"
+# export COMPANY_SDK="$HOME/company-sdk"
+
+# Configurations spécifiques
+# export JAVA_HOME="/opt/java-17"
+# export MAVEN_OPTS="-Xmx2g"
+# export GOPATH="$HOME/go-work"
+
+# Alias spécifiques au travail
+# alias work-vpn="sudo openvpn /path/to/company.ovpn"
+# alias work-ssh="ssh user@work-server.company.com"
+# alias work-deploy="./deploy.sh --env production"
+
+# ==================== NOTES ====================
+# - Ce fichier est chargé automatiquement par .zshrc
+# - Ne commitez JAMAIS ce fichier dans Git
+# - Gardez une copie sécurisée ailleurs (coffre-fort de mots de passe)
