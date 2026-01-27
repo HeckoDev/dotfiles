@@ -19,3 +19,9 @@ alias cms='chezmoi status'
 alias vimhelp='bat ~/.local/share/chezmoi/VIM_CHEATSHEET.md'
 alias vh='bat ~/.local/share/chezmoi/VIM_CHEATSHEET.md'
 alias vimconfig='vim ~/.vimrc'
+
+# Neovim shortcuts
+alias nv='nvim'
+alias nvimhelp='bat ~/.local/share/chezmoi/NEOVIM_CHEATSHEET.md'
+alias nvh='bat ~/.local/share/chezmoi/NEOVIM_CHEATSHEET.md'
+alias nvimconfig='nvim ~/.config/nvim/init.lua'

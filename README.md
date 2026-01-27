@@ -7,6 +7,7 @@ Mes fichiers de configuration personnels, gérés avec [chezmoi](https://www.che
 Ce dépôt contient :
 - `.zshrc` - Configuration principale de Zsh
 - `.vimrc` - Configuration Vim pour le développement
+- `.config/nvim/init.lua` - Configuration Neovim avec thème Kanagawa
 - `.oh-my-zsh/custom/alias.zsh` - Alias personnels
 - `.p10k.zsh` - Configuration Powerlevel10k
 - `run_once_install-packages.sh.tmpl` - Script d'installation automatique de tous les outils
@@ -40,6 +41,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply <votre-username>
 Le script d'installation va automatiquement installer :
 - ✅ Homebrew (Linux/macOS)
 - ✅ Vim avec configuration optimisée pour le développement
+- ✅ Neovim avec thème Kanagawa et plugins modernes
 - ✅ Oh-My-Zsh avec tous les plugins
 - ✅ Powerlevel10k
 - ✅ Outils CLI modernes (eza, bat, delta, fzf, ripgrep, etc.)
@@ -172,6 +174,29 @@ Le fichier `.vimrc` contient une configuration complète pour le développement 
 - [VIM_CHEATSHEET.md](VIM_CHEATSHEET.md) - Aide-mémoire rapide (recommandé)
 - [VIM_CONFIG.md](VIM_CONFIG.md) - Documentation complète
 
+## 🎨 Configuration Neovim (moderne)
+
+Neovim est configuré avec le magnifique thème **Kanagawa** et des plugins modernes :
+
+### Plugins installés
+- **Kanagawa** - Thème inspiré des peintures japonaises
+- **Treesitter** - Coloration syntaxique avancée
+- **Telescope** - Recherche floue de fichiers et contenu
+- **NvimTree** - Explorateur de fichiers
+- **Lualine** - Barre de statut élégante
+- **GitSigns** - Intégration Git dans l'éditeur
+- **Comment.nvim** - Commentaires intelligents
+- **Auto-pairs** - Fermeture automatique des parenthèses
+
+### Raccourcis principaux (Leader = `,`)
+- **Explorateur** : `,t` toggle NvimTree, `,f` focus
+- **Recherche** : `,ff` fichiers, `,fg` grep projet, `,fb` buffers
+- **Commentaires** : `gcc` ligne, `gc` sélection
+- **Exécution** : `F5` run, `F6` build, `F7` test
+
+📖 **Documentation Neovim** :
+- [NEOVIM_CHEATSHEET.md](NEOVIM_CHEATSHEET.md) - Aide-mémoire complet avec plugins
+
 ## 📝 Notes
 
 - Les fichiers sensibles (clés SSH, tokens, credentials) sont explicitement exclus via `.chezmoiignore`
@@ -183,6 +208,7 @@ Le fichier `.vimrc` contient une configuration complète pour le développement 
 - [Documentation chezmoi](https://www.chezmoi.io/)
 - [Aide-mémoire Chezmoi](CHEZMOI_CHEATSHEET.md) - Toutes les commandes chezmoi
 - [Aide-mémoire Vim](VIM_CHEATSHEET.md) - Guide rapide Vim
+- [Aide-mémoire Neovim](NEOVIM_CHEATSHEET.md) - Guide rapide Neovim + plugins
 - [Guide de test](TESTING.md) - Comment tester l'installation
 - [dotfiles.github.io](https://dotfiles.github.io/)
 - [Awesome dotfiles](https://github.com/webpro/awesome-dotfiles)
