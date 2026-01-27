@@ -1,0 +1,349 @@
+" ============================================================================
+" Configuration Vim - Environnement de développement agréable
+" ============================================================================
+
+" --- Paramètres de base ---
+set nocompatible              " Désactiver la compatibilité vi
+filetype plugin indent on     " Détection du type de fichier
+syntax enable                 " Coloration syntaxique
+
+" --- Interface utilisateur ---
+set number                    " Afficher les numéros de ligne
+set relativenumber            " Numéros de ligne relatifs
+set cursorline                " Surligner la ligne actuelle
+set showmatch                 " Afficher les parenthèses correspondantes
+set ruler                     " Afficher la position du curseur
+set showcmd                   " Afficher les commandes incomplètes
+set wildmenu                  " Autocomplétion améliorée en ligne de commande
+set wildmode=longest:full,full
+set laststatus=2              " Toujours afficher la barre de statut
+set encoding=utf-8            " Encodage UTF-8
+
+" --- Couleurs et thème ---
+set background=dark           " Fond sombre
+colorscheme desert            " Thème par défaut (desert, elflord, slate disponibles)
+set termguicolors             " Support des vraies couleurs (si terminal compatible)
+
+" --- Recherche ---
+set incsearch                 " Recherche incrémentale
+set hlsearch                  " Surligner les résultats de recherche
+set ignorecase                " Ignorer la casse lors de la recherche
+set smartcase                 " Casse intelligente (majuscules = sensible à la casse)
+
+" --- Indentation ---
+set autoindent                " Indentation automatique
+set smartindent               " Indentation intelligente
+set expandtab                 " Utiliser des espaces au lieu de tabs
+set tabstop=4                 " Largeur d'une tabulation
+set shiftwidth=4              " Largeur de l'indentation
+set softtabstop=4             " Nombre d'espaces pour une tab en mode édition
+
+" --- Édition ---
+set backspace=indent,eol,start " Backspace fonctionne normalement
+set clipboard=unnamedplus     " Utiliser le presse-papier système
+set mouse=a                   " Activer la souris
+set wrap                      " Retour à la ligne automatique
+set linebreak                 " Ne pas couper les mots
+set scrolloff=8               " Garder 8 lignes visibles au-dessus/en-dessous du curseur
+set sidescrolloff=8           " Idem horizontalement
+
+" --- Performance ---
+set lazyredraw                " Ne pas redessiner pendant les macros
+set ttyfast                   " Terminal rapide
+set updatetime=300            " Temps de mise à jour plus rapide
+
+" --- Fichiers et backup ---
+set nobackup                  " Pas de fichiers de backup
+set nowritebackup             " Pas de backup avant d'écrire
+set noswapfile                " Pas de fichiers swap
+set autoread                  " Recharger automatiquement si modifié ailleurs
+set hidden                    " Permettre de changer de buffer sans sauvegarder
+
+" --- Affichage des caractères invisibles ---
+set list                      " Afficher les caractères invisibles
+set listchars=tab:→\ ,trail:·,nbsp:␣,extends:⟩,precedes:⟨
+
+" --- Barre de statut personnalisée ---
+set statusline=
+set statusline+=\ %F                       " Chemin complet du fichier
+set statusline+=\ %m                       " Indicateur de modification
+set statusline+=\ %r                       " Indicateur lecture seule
+set statusline+=%=                         " Séparateur gauche/droite
+set statusline+=\ %y                       " Type de fichier
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ [%{&fileformat}]         " Format de fichier
+set statusline+=\ %p%%                     " Pourcentage dans le fichier
+set statusline+=\ %l:%c                    " Ligne:colonne
+set statusline+=\ 
+
+" --- Raccourcis clavier ---
+" Leader key
+let mapleader = ","
+
+" Sauvegarder rapidement
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>x :x<CR>
+
+" Désactiver le surlignage de recherche
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Navigation entre les buffers
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>d :bdelete<CR>
+
+" Split de fenêtres
+nnoremap <leader>h :split<CR>
+nnoremap <leader>v :vsplit<CR>
+
+" Navigation entre les splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Déplacement de lignes
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Indentation en mode visuel
+vnoremap < <gv
+vnoremap > >gv
+
+" Copier/coller système
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+" --- Configuration spécifique par type de fichier ---
+" Python
+autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType python setlocal colorcolumn=80
+
+" Go
+autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4 softtabstop=4
+
+" Rush
+autocmd FileType rush setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+
+" JavaScript/TypeScript
+autocmd FileType javascript,typescript,json setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+" HTML/CSS/Vue/Angular
+autocmd FileType html,css,scss,vue,angular setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+" YAML
+autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+" Markdown
+autocmd FileType markdown setlocal wrap linebreak nolist
+autocmd FileType markdown setlocal spell spelllang=fr,en
+
+" --- Commandes utiles ---
+" Supprimer les espaces en fin de ligne
+nnoremap <leader>ss :%s/\s\+$//e<CR>
+
+" Recharger la configuration vim
+nnoremap <leader>r :source ~/.vimrc<CR>:echo "Vimrc rechargé!"<CR>
+
+" Ouvrir le fichier vimrc
+nnoremap <leader>e :e ~/.vimrc<CR>
+
+" Afficher les buffers
+nnoremap <leader>b :buffers<CR>:buffer<Space>
+
+" --- Auto-commandes ---
+" Retourner à la dernière position connue lors de l'ouverture d'un fichier
+autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+" Sauvegarder automatiquement en quittant le mode insertion
+" autocmd InsertLeave * if &modified && expand('%') != '' | silent! write | endif
+
+" --- Numéros de ligne relatifs en mode normal, absolus en mode insertion ---
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+
+" --- Complétion ---
+set completeopt=menuone,longest,preview
+set omnifunc=syntaxcomplete#Complete
+set shortmess+=c              " Ne pas afficher les messages de complétion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" --- Pliage de code (Code Folding) ---
+set foldmethod=indent         " Pliage basé sur l'indentation
+set foldlevelstart=10         " Commencer avec les plis ouverts
+set foldnestmax=10            " Maximum 10 niveaux de pliage
+nnoremap <space> za           " Espace pour plier/déplier
+nnoremap <leader>z zR         " Déplier tout
+nnoremap <leader>Z zM         " Plier tout
+
+" --- Auto-paires pour parenthèses, accolades, guillemets ---
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {;<CR> {<CR>};<Esc>O
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ` ``<Left>
+
+" Ne pas doubler si le caractère existe déjà
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
+inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "'" ? "\<Right>" : "''\<Left>"
+
+" --- Commentaires rapides ---
+" Commenter/décommenter une ligne (adapté selon le langage)
+autocmd FileType python,sh,bash,zsh,ruby,yaml nnoremap <leader>c I# <Esc>
+autocmd FileType python,sh,bash,zsh,ruby,yaml nnoremap <leader>u ^2x
+autocmd FileType javascript,typescript,go,rust,java,c,cpp nnoremap <leader>c I// <Esc>
+autocmd FileType javascript,typescript,go,rust,java,c,cpp nnoremap <leader>u ^3x
+autocmd FileType vim nnoremap <leader>c I" <Esc>
+autocmd FileType vim nnoremap <leader>u ^2x
+
+" Commenter un bloc en mode visuel
+autocmd FileType python,sh,bash,zsh,ruby,yaml vnoremap <leader>c :s/^/# /<CR>:nohlsearch<CR>
+autocmd FileType python,sh,bash,zsh,ruby,yaml vnoremap <leader>u :s/^# //<CR>:nohlsearch<CR>
+autocmd FileType javascript,typescript,go,rust,java,c,cpp vnoremap <leader>c :s/^/\/\/ /<CR>:nohlsearch<CR>
+autocmd FileType javascript,typescript,go,rust,java,c,cpp vnoremap <leader>u :s/^\/\/ //<CR>:nohlsearch<CR>
+
+" --- Amélioration de la recherche ---
+" Recherche du mot sous le curseur sans bouger
+nnoremap * *N
+nnoremap # #N
+
+" Rechercher et remplacer le mot sous le curseur
+nnoremap <leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+vnoremap <leader>s "hy:%s/<C-r>h//g<Left><Left>
+
+" --- Numérotation et guides visuels ---
+" Colonne à 80/120 caractères (pour les standards de code)
+set colorcolumn=80,120
+highlight ColorColumn ctermbg=236 guibg=#303030
+
+" Afficher le guide d'indentation
+set listchars+=tab:│\ 
+
+" --- Gestion des erreurs et quickfix ---
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cp :cprevious<CR>
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>cc :cclose<CR>
+
+" --- Raccourcis de développement ---
+" Exécuter le fichier courant selon le langage
+autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!python3 %<CR>
+autocmd FileType javascript,typescript nnoremap <buffer> <F5> :w<CR>:!node %<CR>
+autocmd FileType go nnoremap <buffer> <F5> :w<CR>:!go run %<CR>
+autocmd FileType rust nnoremap <buffer> <F5> :w<CR>:!cargo run<CR>
+autocmd FileType sh,bash,zsh nnoremap <buffer> <F5> :w<CR>:!bash %<CR>
+
+" Compiler selon le langage
+autocmd FileType go nnoremap <buffer> <F6> :w<CR>:!go build<CR>
+autocmd FileType rust nnoremap <buffer> <F6> :w<CR>:!cargo build<CR>
+autocmd FileType c nnoremap <buffer> <F6> :w<CR>:!gcc % -o %:r<CR>
+autocmd FileType cpp nnoremap <buffer> <F6> :w<CR>:!g++ % -o %:r<CR>
+autocmd FileType java nnoremap <buffer> <F6> :w<CR>:!javac %<CR>
+
+" Tester selon le langage
+autocmd FileType python nnoremap <buffer> <F7> :w<CR>:!pytest %<CR>
+autocmd FileType go nnoremap <buffer> <F7> :w<CR>:!go test ./...<CR>
+autocmd FileType rust nnoremap <buffer> <F7> :w<CR>:!cargo test<CR>
+autocmd FileType javascript,typescript nnoremap <buffer> <F7> :w<CR>:!npm test<CR>
+
+" --- Manipulation de texte avancée ---
+" Dupliquer une ligne
+nnoremap <leader>k yyp
+nnoremap <leader>K yyP
+
+" Sélectionner tout le fichier
+nnoremap <leader>a ggVG
+
+" Insérer la date/heure courante
+nnoremap <leader>dt "=strftime("%Y-%m-%d %H:%M:%S")<CR>p
+inoremap <C-d> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+
+" --- Support Git ---
+" Voir le blame Git de la ligne courante
+nnoremap <leader>gb :!git blame -L <C-r>=line('.')<CR>,<C-r>=line('.')<CR> %<CR>
+
+" Statut Git
+nnoremap <leader>gs :!git status<CR>
+
+" Diff Git
+nnoremap <leader>gd :!git diff %<CR>
+
+" Log Git du fichier courant
+nnoremap <leader>gl :!git log --oneline %<CR>
+
+" --- Amélioration de la navigation ---
+" Aller au début/fin de la ligne
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+" Navigation dans l'historique des modifications
+nnoremap g; g;zz
+nnoremap g, g,zz
+
+" Centrer l'écran après certains mouvements
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" --- Macros utiles ---
+" Transformer en MAJUSCULES/minuscules
+vnoremap <leader>U U
+vnoremap <leader>u u
+vnoremap <leader>~ ~
+
+" --- Templates et snippets ---
+" Template Python
+autocmd FileType python nnoremap <leader>tm :0put =\"#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\|2<CR>
+
+" Template fonction Python
+autocmd FileType python nnoremap <leader>tf odef function_name():<CR>\"\"\"Description de la fonction.\"\"\"<CR>pass<Esc>2k0f_
+
+" Template classe Python
+autocmd FileType python nnoremap <leader>tc oclass ClassName:<CR>\"\"\"Description de la classe.\"\"\"<CR><CR>def __init__(self):<CR>pass<Esc>4k0f_
+
+" Template Go
+autocmd FileType go nnoremap <leader>tm :0put =\"package main\n\nimport (\n\\\"fmt\\\"\n)\n\nfunc main() {\n\n}\n\"\|7<CR>
+
+" Template fonction Go
+autocmd FileType go nnoremap <leader>tf ofunc functionName() {<CR>}<Esc>k0f_
+
+" --- Performances et optimisation ---
+" Désactiver certaines fonctionnalités pour les gros fichiers (>1MB)
+augroup LargeFile
+    autocmd!
+    autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > 1048576 || f == -2 | set eventignore+=all | setlocal noswapfile bufhidden=unload undolevels=-1 | else | set eventignore-=all | endif
+augroup END
+
+" --- Aide visuelle pour les TODO/FIXME/NOTE ---
+augroup TodoHighlight
+    autocmd!
+    autocmd WinEnter,VimEnter * :silent! call matchadd('Todo', 'TODO\|FIXME\|XXX\|HACK\|NOTE\|BUG', -1)
+augroup END
+
+" --- Message de bienvenue ---
+echo "🚀 Configuration Vim Pro chargée avec succès!"
+echo "Leader: ',' | F5=Run | F6=Build | F7=Test | <space>=fold | :help pour l'aide"
