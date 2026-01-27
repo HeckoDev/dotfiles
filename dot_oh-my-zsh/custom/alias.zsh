@@ -14,3 +14,8 @@ alias cme='chezmoi edit'
 alias cma='chezmoi apply'
 alias cmd='chezmoi diff'
 alias cms='chezmoi status'
+
+# Vim shortcuts
+alias vimhelp='bat ~/.local/share/chezmoi/VIM_CHEATSHEET.md'
+alias vh='bat ~/.local/share/chezmoi/VIM_CHEATSHEET.md'
+alias vimconfig='vim ~/.vimrc'
