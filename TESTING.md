@@ -170,6 +170,26 @@ touch ~/.oh-my-zsh/custom/work.zsh
 # Éditer le fichier avec vos variables sensibles
 ```
 
+### 4. Tester la configuration Vim
+```bash
+# Ouvrir vim
+vim
+
+# Tester quelques raccourcis :
+# - Leader key = ','
+# - ,e pour éditer .vimrc
+# - ,w pour sauvegarder
+# - Espace pour plier/déplier le code
+# - F5 pour exécuter (selon le type de fichier)
+
+# Tester avec un fichier Python
+vim test.py
+# En mode insertion, taper: def test():
+# Observer l'auto-complétion des parenthèses et l'indentation automatique
+# ,c pour commenter la ligne
+# ,u pour décommenter
+```
+
 ## Mise à jour de l'environnement
 
 Sur une machine déjà configurée, pour récupérer les dernières modifications :
