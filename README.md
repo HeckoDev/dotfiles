@@ -168,7 +168,9 @@ Le fichier `.vimrc` contient une configuration complète pour le développement 
 - **Édition** : `,k` dupliquer ligne, `,s` chercher/remplacer, `,ss` supprimer espaces
 - **Templates** : `,tm` template principal, `,tf` template fonction, `,tc` template classe
 
-Consultez le fichier `.vimrc` pour la liste complète des fonctionnalités et raccourcis.
+📖 **Documentation Vim** :
+- [VIM_CHEATSHEET.md](VIM_CHEATSHEET.md) - Aide-mémoire rapide (recommandé)
+- [VIM_CONFIG.md](VIM_CONFIG.md) - Documentation complète
 
 ## 📝 Notes
 
@@ -179,7 +181,8 @@ Consultez le fichier `.vimrc` pour la liste complète des fonctionnalités et ra
 ## 🔗 Liens utiles
 
 - [Documentation chezmoi](https://www.chezmoi.io/)
-- [Aide-mémoire Chezmoi](CHEZMOI_CHEATSHEET.md) - Toutes les commandes utiles
+- [Aide-mémoire Chezmoi](CHEZMOI_CHEATSHEET.md) - Toutes les commandes chezmoi
+- [Aide-mémoire Vim](VIM_CHEATSHEET.md) - Guide rapide Vim
 - [Guide de test](TESTING.md) - Comment tester l'installation
 - [dotfiles.github.io](https://dotfiles.github.io/)
 - [Awesome dotfiles](https://github.com/webpro/awesome-dotfiles)
